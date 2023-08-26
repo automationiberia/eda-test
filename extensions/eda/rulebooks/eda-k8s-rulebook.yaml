@@ -11,7 +11,7 @@
   rules:
     - name: Start Managed Clusters Day2 Automation
       condition: event.type == "ADDED"
-      action:
+      actions:
         - set_facts:
             ruleset: "Start Managed Clusters Day2 Automation"
               fact:

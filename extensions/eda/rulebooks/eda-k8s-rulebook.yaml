@@ -7,7 +7,7 @@
         kind: ManagedCluster
         api_key: "{{ vault_api_key }}"
         label_selectors:
-          - aap-done=""
+          - aap-done!=true
   rules:
     - name: Start Managed Clusters Day2 Automation
       condition: event.type == "ADDED"
@@ -15,8 +15,8 @@
         run_job_template:
           name: "Managed Clusters Day2 Automation"
           organization:	"acm-eda"
-          job_args:
-             extra_vars:
-               namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
-               env: "{{ event.resource.metadata.env }}"
+#          job_args:
+#             extra_vars:
+#               namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
+#               env: "{{ event.resource.metadata.env }}"
 ...

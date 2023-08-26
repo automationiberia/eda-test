@@ -4,12 +4,18 @@
   sources:
     - sabre1041.eda.k8s:
         api_version: v1
-        kind: Namespace
+        kind: ManagedClusters
         api_key: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImhqMUR5S1l5WGF3ZHhibnN2ZkJ3RTJkVi1OMmw2UTdfbEdXWXNQR2xtbzgifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTY5MzA0MjQ3OCwiaWF0IjoxNjkzMDM4ODc4LCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6ImVkYS1zYSIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJlZGEtazhzLXRlbXAiLCJ1aWQiOiI0ZWYyNTUwOC02MjNiLTQ2N2UtOTA0Ny1hY2U5NmFiOWNlZmIifX0sIm5iZiI6MTY5MzAzODg3OCwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmVkYS1zYTplZGEtazhzLXRlbXAifQ.DBME1F2YmEy4zcBm-vgvgxov6AaOiHUuKCaOFhRM4-1yOgz-6rKI3VpO913SrIK1UYJ0Hwvj5rKJxSZXn5Fd3f4Z446Pp2AHXXRhAAM9MrrdyMQb24ROvWNAO15znF8PsXPqRro1yPv6mDrjPVqtuDqL7Voiv4mn3NUCXAZ3zAbR-TsUcqtRQAbSNAfYflQd5egzSO8J02IGqPYSW5ApTrlWQFkBOnIG0_fH_0WJiF_gVJgcpJaUMtOCWb7k2Oy0AE9RGkTt2Qq3-UYgug9kdqRYzOx308xZni7BxBPyLTLucLz8eFQy1shnQOWBj6W02qQSM1aobobLKy0n-kzpAx-leoABjkqNtbVx3a7rxGZYzLhETB9_pL7Y3Ot3Ij7WS-M0TM7GnKWZOgyWxOM_p29WmcQbNJlsakkQFfwFm4f9rzXCaxkA3x0oNLvdnRMWDBXyMFMYjYbllXqEb9LCQo-ZWABsccO8totPgwH6FH7IfNjiLZkMEn-mSpkXWXgTqoMT68x_oM-xHRf1k_QBhyAkVaa-mKW5c95zv69Hye3LrzVFr9H6CY6FmcZKZ_ZnwHLpY3HQT3MbZFZbWOibV9S70NR0lUsQjZdroAO6Q3gWt8J7PGa2CTUDLh_D-iUMZEVMirsqpzIpNYKX5cySrXe4_i9iDDuBlgPZCJQyzKE"
+        label_selectors:
+          - type=eda
   rules:
     - name: Print Add Events
       condition: event.type == "ADDED"
       action:
-        debug:
-          msg: "Rule has worked!"
+        - debug:
+           msg: "Rule has worked!"
+        - run_job_template:
+            name: "Managed Clusters Day2 Automation"
+            organization:	acm-eda
+
 ...

@@ -1,5 +1,5 @@
 ---
-- name: Listen for Namespaces across
+- name: Listen for ManagedCluster across
   hosts: all
   sources:
     - sabre1041.eda.k8s:

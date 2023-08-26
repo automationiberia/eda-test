@@ -12,8 +12,8 @@
     - name: Start Managed Clusters Day2 Automation
       condition: event.type == "ADDED"
       actions:
-        - print_event:
-            pretty: true
+#        - print_event:
+#            pretty: true
         - debug:
             msg: "namespace_to_add: {{ event.resource.metadata.name }}-day2ops"
 #        - run_workflow_template:

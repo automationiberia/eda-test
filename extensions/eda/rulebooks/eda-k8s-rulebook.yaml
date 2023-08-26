@@ -3,7 +3,7 @@
   hosts: all
   sources:
     - sabre1041.eda.k8s:
-        api_version: cluster.open-cluster-management.io/v1
+        api_version: "cluster.open-cluster-management.io/v1"
         kind: ManagedClusters
         api_key: "{{ vault_api_key }}"
         label_selectors:

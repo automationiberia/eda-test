@@ -15,8 +15,4 @@
         run_job_template:
           name: "Managed Clusters Day2 Automation"
           organization:	"acm-eda"
-#          job_args:
-#             extra_vars:
-#               namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
-#               env: "{{ event.resource.metadata.env }}"
 ...

@@ -16,9 +16,9 @@
 #            pretty: true
         - debug:
             msg: "namespace_to_add: {{ event.resource.metadata.name }}-day2ops"
-#        - run_workflow_template:
-#            name: "Inventory Sync"
-#            organization: "acm-eda"
+        - run_workflow_template:
+            name: "Inventory Sync"
+            organization: "acm-eda"
         - run_job_template:
             name: "Managed Clusters Day2 Automation"
             organization: "acm-eda"

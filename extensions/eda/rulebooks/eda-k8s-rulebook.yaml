@@ -7,7 +7,7 @@
         kind: ManagedCluster
         api_key: "{{ vault_api_key }}"
         label_selectors:
-          - aap-day2="true"
+          - type=eda
   rules:
     - name: Start Managed Clusters Day2 Automation
       condition: event.type == "ADDED"

@@ -12,7 +12,10 @@
     - name: Start Managed Clusters Day2 Automation
       condition: event.type == "ADDED"
       actions:
-        run_workflow_template:
-          name: "Inventory Sync"
+        run_job_template:
+          name: "Managed Clusters Day2 Automation"
           organization: "acm-eda"
+          job_args:
+            extra_vars:
+              env: "{{ event.resource.metadata.env }}"
 ...

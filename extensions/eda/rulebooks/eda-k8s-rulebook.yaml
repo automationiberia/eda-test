@@ -38,6 +38,5 @@
             organization: "acm-eda"
             job_args:
               extra_vars:
-                 env: "{{ event.resource.metadata.env }}"
                  namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
 ...

@@ -27,5 +27,6 @@
               extra_vars:
                 test-prueba: "Valor"
                 namespace_name: "fixed-variable-test"
-                set_facts: True
+            set_facts: True
+            verbosity: 4
 ...

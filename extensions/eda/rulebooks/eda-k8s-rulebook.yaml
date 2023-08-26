@@ -10,7 +10,10 @@
           - type=eda
   rules:
     - name: Start Managed Clusters Day2 Automation
-      condition: event.type == "ADDED"
+      condition:
+        all:
+          - event.resource.status.conditions[0].status == "True"
+          - event.type == "ADDED"
       actions:
         - print_event:
             pretty: true

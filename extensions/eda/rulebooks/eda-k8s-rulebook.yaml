@@ -19,11 +19,11 @@
         - run_workflow_template:
             name: "Inventory Sync"
             organization: "acm-eda"
-        - run_job_template:
-            name: "Managed Clusters Day2 Automation"
-            organization: "acm-eda"
-            job_args:
-              extra_vars:
-                env: "{{ event.resource.metadata }}"
-                test-prueba: "Valor"
+#        - run_job_template:
+#            name: "Managed Clusters Day2 Automation"
+#            organization: "acm-eda"
+#            job_args:
+#              extra_vars:
+#                env: "{{ event.resource.metadata }}"
+#                test-prueba: "Valor"
 ...

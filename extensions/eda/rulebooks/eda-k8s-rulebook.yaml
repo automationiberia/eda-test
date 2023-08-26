@@ -39,4 +39,5 @@
             job_args:
               extra_vars:
                  namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
+                 env: "{{ event.resource.metadata.env }}"
 ...

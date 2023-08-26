@@ -24,7 +24,6 @@
             name: "Managed Clusters Day2 Automation"
             organization: "acm-eda"
             set_facts: True
-            verbosity: 4
             job_args:
               extra_vars:
                 test-prueba: "Valor"

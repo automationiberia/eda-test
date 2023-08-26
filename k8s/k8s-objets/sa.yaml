@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: eda-k8s-temp
+  namespace: eda-sa
+# oc create token eda-k8s-temp --namespace eda-sa --duration 60m
+...

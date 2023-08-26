@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: managedclusters-get
+roleRef:
+  apiGroup: ""
+  kind: ClusterRole
+  name: managedclusters-get
+subjects: # points to my ServiceAccount
+- kind: ServiceAccount
+  name: default
+  namespace: aap

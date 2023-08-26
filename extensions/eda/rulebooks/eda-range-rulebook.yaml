@@ -1,5 +1,5 @@
 ---
-- name: Controller Demo
+- name: EDA Demo
   hosts: all
   sources:
     - ansible.eda.range:

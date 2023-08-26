@@ -16,14 +16,17 @@
 #            pretty: true
         - debug:
             msg: "namespace_to_add: {{ event.resource.metadata.name }}-day2ops"
-        - run_workflow_template:
-            name: "Inventory Sync"
-            organization: "acm-eda"
-#        - run_job_template:
-#            name: "Managed Clusters Day2 Automation"
+#  ansible_rulebook.rule_set_runner - ERROR - Action run_workflow_template not supported
+#        - run_workflow_template:
+#            name: "Inventory Sync"
 #            organization: "acm-eda"
-#            job_args:
-#              extra_vars:
-#                env: "{{ event.resource.metadata }}"
-#                test-prueba: "Valor"
+        - run_job_template:
+            name: "Managed Clusters Day2 Automation"
+            organization: "acm-eda"
+            job_args:
+              extra_vars:
+                env: "{{ event.resource.metadata.env }}"
+                test-prueba: "Valor"
+                namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
+                namespace_name: "fixed-variable-test"
 ...

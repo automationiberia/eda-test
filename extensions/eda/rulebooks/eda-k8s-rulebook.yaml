@@ -25,8 +25,6 @@
             organization: "acm-eda"
             job_args:
               extra_vars:
-                env: "{{ event.resource.metadata.env }}"
                 test-prueba: "Valor"
-                namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
                 namespace_name: "fixed-variable-test"
 ...

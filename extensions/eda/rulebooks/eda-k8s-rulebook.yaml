@@ -24,5 +24,6 @@
             organization: "acm-eda"
             job_args:
               extra_vars:
-                env: "{{ event.resource }}"
+                env: "{{ event.resource.metadata }}"
+                test-prueba: "Valor"
 ...

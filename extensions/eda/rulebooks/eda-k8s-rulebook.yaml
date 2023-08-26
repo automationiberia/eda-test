@@ -12,12 +12,12 @@
     - name: Start Managed Clusters Day2 Automation
       condition: event.type == "ADDED"
       action:
-        run_workflow_template:
-          name: "Inventory Sync"
-          organization: "acm-eda"
-        run_job_template:
-          name: "Managed Clusters Day2 Automation"
-          organization: "acm-eda"
-          set_facts:
-            namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
+        - run_workflow_template:
+            name: "Inventory Sync"
+            organization: "acm-eda"
+        - run_job_template:
+            name: "Managed Clusters Day2 Automation"
+            organization: "acm-eda"
+            set_facts:
+              namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
 ...

@@ -12,8 +12,8 @@
     - name: Start Managed Clusters Day2 Automation
       condition:
         all:
-          - event.resource.status.conditions[0].status == "True"
-          - event.type == "ADDED"
+          - event.resource.status.conditions[0].status == True
+          # - event.type == "ADDED"
       actions:
         - print_event:
             pretty: true

@@ -14,8 +14,8 @@
       action:
         debug:
           msg: "{{ event }}"
-        #run_job_template:
-        #  name: "Managed Clusters Day2 Automation"
-        #  organization:	acm-eda
+        run_job_template:
+          name: "Managed Clusters Day2 Automation"
+          organization:	acm-eda
 
 ...

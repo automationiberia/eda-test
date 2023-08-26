@@ -13,7 +13,7 @@
       condition:
         all:
           - event.type == "ADDED"
-          - 'event.resource.metadata.labels.feature.open-cluster-management.io/addon-managed-serviceaccount' == "available"
+          - "event.resource.metadata.labels.feature.open-cluster-management.io/addon-managed-serviceaccount == available"
       actions:
         - print_event:
             pretty: true

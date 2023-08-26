@@ -4,7 +4,7 @@
   sources:
     - sabre1041.eda.k8s:
         api_version: "cluster.open-cluster-management.io/v1"
-        kind: ManagedClusters
+        kind: ManagedCluster
         api_key: "{{ vault_api_key }}"
         label_selectors:
           - type=eda

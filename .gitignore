@@ -1,0 +1,4 @@
+.vault-password
+decision-environment/context/
+playbooks/config-controller-filetree-artifact-*.json
+ansible-navigator.log

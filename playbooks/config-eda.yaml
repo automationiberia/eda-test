@@ -1,0 +1,26 @@
+---
+- name: Apply Automation EDA Configuration
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    assign_galaxy_credentials_to_org: false
+    eda_state: present
+    eda_hostname: "{{ vault_eda_hostname }}"
+    eda_username: "{{ vault_eda_username }}"
+    eda_password: "{{ vault_eda_password }}"
+    eda_validate_certs: "{{ vault_eda_validate_certs }}"
+  pre_tasks:
+    - name: Include vars from eda_configs directory
+      ansible.builtin.include_vars:
+        dir: "{{ playbook_dir }}/../aap/eda/configs"
+        extensions:
+          - 'yaml'
+          - 'yml'
+      tags:
+        - always
+  roles:
+    - infra.eda_configuration.project
+    - infra.eda_configuration.project_sync
+
+...

@@ -1,0 +1,19 @@
+---
+eda_projects:
+  - name: eda-test Project
+    description: Git Repository to test EDA
+    url: https://github.com/automationiberia/eda-test.git
+#    credential: test_token
+    sync: true
+    interval: 5
+    timeout: 30
+    wait: true
+#  - name: acm-eda Project
+#    description: Git Repository with all EDA objects
+#    url: https://github.com/automationiberia/acm-eda.git
+#    credential: 	git credential
+#    sync: true
+#    interval: 5
+#    timeout: 30
+#    wait: true
+...

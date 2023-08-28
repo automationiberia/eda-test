@@ -39,4 +39,6 @@
             job_args:
               extra_vars:
                  namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
+        - debug:
+            msg: "Post Debug"
 ...

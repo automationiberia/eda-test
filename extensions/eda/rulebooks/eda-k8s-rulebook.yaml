@@ -16,12 +16,11 @@
           # Important: Do not add more than 2 (two) conditions to the list... it won't work!
           - event.type == "ADDED"
           - event.resource.status.conditions is not selectattr("status", "!=", "True")
-          - event.resource.kind == "ManagedCluster"
-          # - event.resource.status.conditions[0].status == "True" and
-          #   event.resource.status.conditions[1].status == "True" and
-          #   event.resource.status.conditions[2].status == "True" and
-          #   event.resource.status.conditions[3].status == "True" and
-          #   event.resource.status.conditions[4].status == "True"
+          - event.resource.status.conditions[0].status == "True" and
+            event.resource.status.conditions[1].status == "True" and
+            event.resource.status.conditions[2].status == "True" and
+            event.resource.status.conditions[3].status == "True" and
+            event.resource.status.conditions[4].status == "True"
       actions:
         - print_event:
             pretty: true

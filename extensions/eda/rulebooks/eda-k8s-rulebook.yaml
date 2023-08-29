@@ -14,7 +14,7 @@
       condition:
         all:
           - event.type == "ADDED"
-          - event.resource.status.conditions[1].status == "True"
+          - event.resource.status.conditions[0].status == "True" and event.resource.status.conditions[1].status == "True"
           # - event.resource.status.conditions is not selectattr("status", "match", "True")
           # Make sure ACM Managed Imported cluster condition are True
           # - event.resource.status.conditions[0].status == "True"

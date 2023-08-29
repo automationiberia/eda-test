@@ -16,10 +16,10 @@
           - event.type == "ADDED"
 # Make sure ACM Managed Imported cluster condition are True
           - event.resource.status.conditions[0].status == "True"
-#          - event.resource.status.conditions[1].status == True
-#          - event.resource.status.conditions[2].status == True
-#          - event.resource.status.conditions[3].status == True
-#          - event.resource.status.conditions[4].status == True
+          - event.resource.status.conditions[1].status == "True"
+          - event.resource.status.conditions[2].status == "True"
+          - event.resource.status.conditions[3].status == "True"
+          - event.resource.status.conditions[4].status == "True"
       actions:
         - debug:
             msg: "Run Workflow DEBUG"

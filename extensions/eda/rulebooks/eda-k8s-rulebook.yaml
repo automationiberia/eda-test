@@ -26,9 +26,9 @@
             pretty: true
         - debug:
             msg: "Run Workflow"
-        - run_workflow_template:
-            name: "Inventory Sync"
-            organization: "acm-eda"
+        #- run_workflow_template:
+        #    name: "Inventory Sync"
+        #    organization: "acm-eda"
         - debug:
             msg: "Post Debug"
 

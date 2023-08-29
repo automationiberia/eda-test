@@ -14,12 +14,12 @@
       condition:
         all:
           - event.type == "ADDED"
-          - event.resource.status.conditions[0].status == "True" and
-            event.resource.status.conditions[1].status == "True" and
-            event.resource.status.conditions[2].status == "True" and
-            event.resource.status.conditions[3].status == "True" and
-            event.resource.status.conditions[4].status == "True"
           - event.resource.kind == "ManagedCluster"
+          # - event.resource.status.conditions[0].status == "True" and
+          #   event.resource.status.conditions[1].status == "True" and
+          #   event.resource.status.conditions[2].status == "True" and
+          #   event.resource.status.conditions[3].status == "True" and
+          #   event.resource.status.conditions[4].status == "True"
 
 
 

@@ -21,6 +21,8 @@
             event.resource.status.conditions[3].status == "True" and
             event.resource.status.conditions[4].status == "True"
       actions:
+        - print_event:
+            pretty: true
         - debug:
             msg: "Run Workflow DEBUG"
         - run_workflow_template:

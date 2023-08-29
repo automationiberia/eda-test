@@ -18,12 +18,12 @@
         #- run_workflow_template:
         #    name: "Inventory Sync"
         #    organization: "acm-eda"
-#        - run_job_template:
-#            name: "Managed Clusters Day2 Automation"
-#            organization: "acm-eda"
-#            job_args:
-#              extra_vars:
-#                 namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
+        - run_job_template:
+            name: "Managed Clusters Day2 Automation"
+            organization: "acm-eda"
+            job_args:
+              extra_vars:
+                 namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
 
 #    - name: Start Managed Clusters Day2 Automation
 #      enabled: true

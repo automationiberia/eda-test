@@ -25,6 +25,27 @@
         - print_event:
             pretty: true
         - debug:
+            msg: "Run Workflow"
+        - run_workflow_template:
+            name: "Inventory Sync"
+            organization: "acm-eda"
+
+    - name: Start Managed Clusters Day2 Automation
+      condition:
+        all:
+          - event.type == "ADDED"
+# Make sure ACM Managed Imported cluster condition are True
+          - event.resource.status.conditions[0].status == True
+          - event.resource.status.conditions[1].status == True
+          - event.resource.status.conditions[2].status == True
+          - event.resource.status.conditions[3].status == True
+          - event.resource.status.conditions[4].status == True
+# Make sure ACM Managed Imported cluster has installed addon-managed-serviceaccount
+#          - event.resource.metadata.labels.feature.open-cluster-management.io/addon-managed-serviceaccount == "available"
+      actions:
+        - print_event:
+            pretty: true
+        - debug:
             msg: "namespace_to_add: {{ event.resource.metadata.name }}-day2ops"
 #        - set_facts:
 #            fact:

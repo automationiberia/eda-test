@@ -9,7 +9,7 @@
         label_selectors:
           - type=eda
   rules:
-    - name: Start Managed Clusters Day2 Automation
+    - name: Start Managed Clusters Day2 Automation (Workflow Only)
       condition:
         all:
           - event.type == "ADDED"

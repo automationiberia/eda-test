@@ -10,6 +10,7 @@
           - type=eda
   rules:
     - name: Start Managed Clusters Day2 Automation (Workflow Only)
+      enabled: false
       condition:
         all:
           - event.type == "ADDED"
@@ -33,7 +34,7 @@
             msg: "Post Debug"
 
     - name: Start Managed Clusters Day2 Automation
-      enabled: false
+      enabled: true
       condition:
         all:
           - event.type == "ADDED"
@@ -54,9 +55,9 @@
 #            fact:
 #              namespace_to_add: "{{ event.resource.metadata.name }}-day2ops"
 #  ansible_rulebook.rule_set_runner - ERROR - Action run_workflow_template not supported
-        - run_workflow_template:
-            name: "Inventory Sync"
-            organization: "acm-eda"
+        #- run_workflow_template:
+        #    name: "Inventory Sync"
+        #    organization: "acm-eda"
         - run_job_template:
             name: "Managed Clusters Day2 Automation"
             organization: "acm-eda"

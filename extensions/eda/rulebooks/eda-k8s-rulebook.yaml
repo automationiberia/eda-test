@@ -29,8 +29,11 @@
         - run_workflow_template:
             name: "Inventory Sync"
             organization: "acm-eda"
+        - debug:
+            msg: "Post Debug"
 
     - name: Start Managed Clusters Day2 Automation
+      enabled: false
       condition:
         all:
           - event.type == "ADDED"

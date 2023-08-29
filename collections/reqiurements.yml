@@ -1,0 +1,5 @@
+---
+collections:
+  - ansible.eda
+  - sabre1041.eda
+...

@@ -7,5 +7,5 @@ fi
 
 AAH=quay.io/automationiberia/eda
 
-ansible-builder build -v3 --tag ${AAH}/${1}
+ansible-builder build -v3 --tag ${AAH}/${1} -f decision-environment.yml
 podman push ${AAH}/${1} --tls-verify=false

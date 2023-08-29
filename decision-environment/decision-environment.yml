@@ -1,27 +1,62 @@
 ---
-# https://github.com/ansible/ansible-rulebook/blob/main/minimal-decision-environment.yml
 version: 3
-
 images:
   base_image:
-    name: 'registry.redhat.io/ansible-automation-platform-24/de-minimal-rhel8:latest'
-
+    name: quay.io/centos/centos:stream9
 dependencies:
+  ansible_core:
+    # Require minimum of 2.15 to get ansible-inventory --limit option
+    package_pip: ansible-core>=2.15.0rc2,<2.16
+  ansible_runner:
+    package_pip: ansible-runner
   galaxy:
     collections:
       - ansible.eda
       - sabre1041.eda
-  python:
-    - requests
-    - kubernetes
   system:
+    - java-17-openjdk-devel [platform:rpm]
     - pkgconf-pkg-config [platform:rpm]
     - systemd-devel [platform:rpm]
     - gcc [platform:rpm]
-    - python39-devel [platform:rpm]
-  python_interpreter:
-    package_system: "python39"
-
-options:
-  package_manager_path: /usr/bin/microdnf
-...
+    - git-core [platform:rpm]
+    - python3.9-devel [platform:rpm compile]
+    - libcurl-devel [platform:rpm compile]
+    - krb5-devel [platform:rpm compile]
+    - krb5-workstation [platform:rpm]
+    - subversion [platform:rpm]
+    - subversion [platform:dpkg]
+    - git-lfs [platform:rpm]
+    - sshpass [platform:rpm]
+    - rsync [platform:rpm]
+    - epel-release [platform:rpm]
+    - python-unversioned-command [platform:rpm]
+    - unzip [platform:rpm]
+  python:
+    - requests
+    - kubernetes
+    - git+https://github.com/ansible/ansible-sign
+    - ncclient
+    - paramiko
+    - pyOpenSSL
+    - toml
+    - pexpect>=4.5
+    - python-daemon
+    - pyyaml
+    - six
+    - azure-servicebus
+    - aiobotocore
+    - aiohttp
+    - aiokafka
+    - watchdog
+    - systemd-python
+    - dpath
+    - ansible-rulebook
+additional_build_steps:
+  append_base:
+    - RUN $PYCMD -m pip install -U pip
+  append_final:
+    - COPY --from=quay.io/ansible/receptor:devel /usr/bin/receptor /usr/bin/receptor
+    - RUN mkdir -p /var/run/receptor
+    - RUN git lfs install --system
+    - RUN ansible-galaxy collection install git+https://github.com/redhat-cop/eda_configuration.git --collections-path "/usr/share/ansible/collections"
+    - RUN mkdir -p /runner/.ansible/galaxy_cache && chown -R 1000:0 /runner/.ansible/galaxy_cache && ln -s /runner/.ansible /.ansible

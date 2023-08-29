@@ -10,7 +10,7 @@
           - type=eda
   rules:
     - name: Start Managed Clusters Day2 Automation (Workflow Only)
-      enabled: false
+      enabled: true
       condition: event.type == "ADDED"
 #        all:
 #          - event.type == "ADDED"

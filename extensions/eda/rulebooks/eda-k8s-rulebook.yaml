@@ -23,7 +23,10 @@
           # - event.resource.status.conditions[4].status == "True"
       actions:
         - debug:
-            msg: "Run Workflow DEBUG"
+            msg:
+              - "Run Workflow DEBUG"
+              - "event: {{ event }}"
+              - "event: {{ events }}"
         - run_workflow_template:
             name: "Inventory Sync"
             organization: "acm-eda"
